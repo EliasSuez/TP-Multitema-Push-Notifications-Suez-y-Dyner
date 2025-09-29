@@ -21,7 +21,6 @@ export default function App() {
   const [allTokens, setAllTokens] = useState([]);
 
   useEffect(() => {
-    // Registro y guardado en Firebase
     registerForPushNotificationsAsync().then(async token => {
       setExpoPushToken(token);
 
@@ -33,12 +32,14 @@ export default function App() {
             token,
             timestamp: Date.now(),
           });
+          // Refresca la lista después de guardar
+          fetchTokens();
         } catch (e) {
           console.log("Error guardando token en Firestore:", e);
         }
+      } else {
+        fetchTokens();
       }
-      // Trae todos los tokens de Firestore para poder seleccionarlos
-      fetchTokens();
     });
 
     const sub1 = Notifications.addNotificationReceivedListener(notification => {
