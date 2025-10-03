@@ -1,6 +1,5 @@
 import { initializeApp } from "firebase/app";
 
-// Tu configuración de Firebase
 const firebaseConfig = {
   apiKey: "AIzaSyDcNyNX-Ug3noLEGtRIcPENow_1XZGgTCM",
   authDomain: "tp-multitema-suez-dyner.firebaseapp.com",
@@ -11,5 +10,4 @@ const firebaseConfig = {
   measurementId: "G-6C6XMWN7DE"
 };
 
-// Inicializa Firebase
 export const app = initializeApp(firebaseConfig);
